@@ -17,7 +17,10 @@ app = Flask(__name__)
 CORS(app)
 
 from database.db import init_db
-init_db()
+try:
+    init_db()
+except Exception as e:
+    print(f"Warning: Failed to initialize database on startup: {e}")
 
 # Register blueprints
 app.register_blueprint(character_bp)
