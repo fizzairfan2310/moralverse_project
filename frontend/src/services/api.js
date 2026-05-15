@@ -1,8 +1,11 @@
 import axios from 'axios';
 
-const API_BASE = window.location.hostname === 'localhost' 
-  ? 'http://localhost:5000/api' 
-  : '/api'; // This will be proxied or handled by the hosting provider
+// Priority: 1. Env variable (set in Vercel dashboard)  2. Same-origin /api  3. Local dev
+const API_BASE = process.env.REACT_APP_API_URL 
+  ? `${process.env.REACT_APP_API_URL}/api`
+  : window.location.hostname === 'localhost'
+    ? 'http://localhost:5000/api'
+    : '/api';
 
 // Character APIs
 export const getCharacters = () => axios.get(`${API_BASE}/characters`);

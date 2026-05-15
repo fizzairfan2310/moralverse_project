@@ -5,9 +5,11 @@ import './StoryCard.css';
 function StoryCard({ story, onRead, character }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Get first 150 characters of story
-  const storyPreview = story.story_text.substring(0, 150);
+  // Get first 150 characters of story — safe against null/undefined
+  const storyPreview = (story.story_text || '').substring(0, 150);
   const narratorName = character?.name || 'Unknown';
+  const storyTitle = story.title || 'Untitled Story';
+  const moralLesson = story.moral_lesson || 'A story with a lesson to discover.';
 
   return (
     <div 
@@ -51,7 +53,7 @@ function StoryCard({ story, onRead, character }) {
       <div className="story-card-glass-anime">
         {/* Header */}
         <div className="story-header-anime">
-          <h3 className="story-title-anime">{story.title}</h3>
+          <h3 className="story-title-anime">{storyTitle}</h3>
           <div className="narrator-badge-anime">
             <span className="narrator-icon">🎭</span>
             {narratorName}
@@ -68,7 +70,7 @@ function StoryCard({ story, onRead, character }) {
           <div className="moral-icon-anime">💡</div>
           <div className="moral-content-anime">
             <span className="moral-label">Moral Lesson</span>
-            <p className="moral-text">{story.moral_lesson}</p>
+            <p className="moral-text">{moralLesson}</p>
           </div>
         </div>
 

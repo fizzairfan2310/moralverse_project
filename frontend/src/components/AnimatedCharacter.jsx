@@ -20,6 +20,9 @@ function AnimatedCharacter({
   const lottieContainerRef = useRef(null);
   const lottieInstanceRef = useRef(null);
 
+  // 🛡️ Guard: if character is missing, render nothing
+  if (!character) return null;
+
   // Load Lottie animation dynamically
   const loadLottieAnimation = useCallback(async () => {
     try {
