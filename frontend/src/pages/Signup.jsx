@@ -37,7 +37,7 @@ function Signup() {
           <h2>Create Account</h2>
           <p className="auth-subtitle">Join the magical community today</p>
           
-          {error && <p style={{color: '#ef4444', marginBottom: '20px', fontWeight: '700'}}>{error}</p>}
+          {error && <p style={{color: '#ef4444', marginBottom: '20px', fontWeight: '700'}}>{typeof error === 'string' ? error : JSON.stringify(error)}</p>}
           
           <form onSubmit={handleSubmit}>
             <div className="auth-input-group">

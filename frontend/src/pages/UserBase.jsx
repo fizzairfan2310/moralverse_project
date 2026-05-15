@@ -60,7 +60,7 @@ function UserBase() {
         </header>
 
         <div className="dashboard-scroll-area">
-          {error && <p className="error-message-pro">{error}</p>}
+          {error && <p className="error-message-pro">{typeof error === 'string' ? error : JSON.stringify(error)}</p>}
           <div className="table-card-pro">
             <h2 className="table-title-pro">Platform Users ({users.length})</h2>
             <table className="pro-table">
@@ -78,12 +78,12 @@ function UserBase() {
                     <td>
                       <div className="user-cell-pro">
                         <div className="user-avatar-small">
-                          {u.username ? u.username[0].toUpperCase() : 'U'}
+                          {typeof u.username === 'string' && u.username ? u.username[0].toUpperCase() : 'U'}
                         </div>
-                        <strong>{u.username}</strong>
+                        <strong>{typeof u.username === 'string' ? u.username : 'User'}</strong>
                       </div>
                     </td>
-                    <td><span className="badge-pro">{u.role}</span></td>
+                    <td><span className="badge-pro">{typeof u.role === 'string' ? u.role : 'Member'}</span></td>
                     <td><span className="status-dot-small"></span> Active</td>
                     <td>
                       <button className="btn-edit-pro" onClick={() => handleEditUser(u)}>Edit Role</button>

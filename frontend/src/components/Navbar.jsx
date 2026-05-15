@@ -21,7 +21,7 @@ function Navbar() {
         {user && (
           <>
             <span className="user-info">
-              Welcome, {user.username} ({user.role})
+              Welcome, {typeof user?.username === 'string' ? user.username : 'User'} ({typeof user?.role === 'string' ? user.role : 'Member'})
             </span>
             <button onClick={handleLogout} className="btn-logout">
               Logout

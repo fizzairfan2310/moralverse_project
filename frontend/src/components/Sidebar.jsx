@@ -41,9 +41,9 @@ function Sidebar() {
 
       <div className="sidebar-footer">
         <div className="admin-user-info">
-          <div className="user-avatar">{user?.username?.[0]?.toUpperCase() || 'A'}</div>
+          <div className="user-avatar">{typeof user?.username === 'string' ? user.username[0]?.toUpperCase() : 'A'}</div>
           <div className="user-details">
-            <span className="user-name">{user?.username || 'Admin'}</span>
+            <span className="user-name">{typeof user?.username === 'string' ? user.username : 'Admin'}</span>
             <span className="user-role">Administrator</span>
           </div>
         </div>
