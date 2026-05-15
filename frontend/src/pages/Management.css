@@ -1,0 +1,161 @@
+/* ============================================
+   PERFECT MANAGEMENT UI - FINAL & STABLE
+   ============================================ */
+
+/* 📄 Form Styling */
+.form-card-pro {
+  background: rgba(30, 41, 59, 0.6) !important;
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.form-group-pro label {
+  display: block;
+  font-size: 12px;
+  color: #818cf8;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.form-group-pro input, .form-group-pro select, .form-group-pro textarea {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px 18px;
+  color: #fff;
+}
+
+/* 📊 Solid Table Card Fix */
+.table-card-pro {
+  background: rgba(30, 41, 59, 0.5) !important; /* 👈 Visible background */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  margin-top: 30px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.table-title-pro {
+  padding: 25px 30px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pro-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pro-table th {
+  background: rgba(15, 23, 42, 0.4);
+  padding: 18px 30px;
+  text-align: left;
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pro-table td {
+  padding: 15px 30px; /* 👈 Controlled padding */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  color: #cbd5e1;
+  vertical-align: middle;
+}
+
+/* 🎭 Character Icon Fix in Table */
+.table-visual-box {
+  width: 50px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.table-visual-box .animated-character-container {
+  transform: scale(0.6) !important; /* 👈 Keep icons small */
+}
+
+/* 🚀 Premium Buttons Fix */
+.btn-primary-pro {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 12px 28px !important;
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3) !important;
+}
+
+.btn-edit-pro {
+  background: rgba(99, 102, 241, 0.2) !important;
+  color: #818cf8 !important;
+  border: 1px solid rgba(129, 140, 248, 0.4) !important;
+  padding: 8px 16px !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  margin-right: 12px !important;
+  transition: 0.3s !important;
+}
+
+.btn-edit-pro:hover {
+  background: #6366f1 !important;
+  color: #fff !important;
+}
+
+.btn-delete-pro {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #ef4444 !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  padding: 8px 16px !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+.btn-delete-pro:hover {
+  background: #ef4444 !important;
+  color: #fff !important;
+}
+
+.btn-secondary-pro {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #94a3b8 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 12px 28px !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+}
+
+/* UI Details */
+.badge-pro {
+  background: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.status-dot-small {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+  margin-right: 8px;
+}

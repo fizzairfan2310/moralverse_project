@@ -1,0 +1,136 @@
+/* ============================================
+   STORY CARD - PROFESSIONAL DARK GLASS
+   ============================================ */
+
+.story-card-anime {
+  position: relative;
+  height: 480px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.story-card-anime:hover {
+  transform: translateY(-12px);
+}
+
+.story-card-glass-anime {
+  position: relative;
+  height: 100%;
+  padding: 80px 30px 30px;
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease;
+}
+
+.story-card-anime:hover .story-card-glass-anime {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Character Float */
+.character-float-anime {
+  position: absolute;
+  top: -40px;
+  left: 30px;
+  z-index: 10;
+}
+
+.character-avatar-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 28px;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-card-anime:hover .character-avatar-wrapper {
+  transform: scale(1.1) rotate(-5deg);
+  border-color: #6366f1;
+}
+
+/* Header */
+.story-header-anime {
+  margin-bottom: 16px;
+}
+
+.story-title-anime {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.narrator-badge-anime {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.story-preview-anime {
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Moral Section */
+.moral-section-anime {
+  background: rgba(15, 23, 42, 0.4);
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.moral-icon-anime { font-size: 24px; }
+
+.moral-label {
+  font-size: 10px;
+  color: #6366f1;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.moral-text {
+  font-size: 13px;
+  color: #f1f5f9;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Button */
+.read-btn-anime {
+  margin-top: 20px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.read-btn-anime:hover {
+  background: #4f46e5;
+  transform: scale(1.02);
+}

@@ -1,0 +1,77 @@
+.navbar {
+  position: fixed;
+  top: 0; /* 👈 Space khatam */
+  left: 0;
+  transform: none; /* 👈 Center karne ki zaroorat nahi ab */
+  width: 100%; /* 👈 Poori width */
+  height: 70px;
+  background: rgba(15, 23, 42, 0.8); /* 👈 Thoda zyada dark taake upar se gap na dikhe */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 👈 Sirf niche border */
+  border-radius: 0; /* 👈 Corners round nahi chahiye ab top par */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand h2 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #fff 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #94a3b8;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.user-info span {
+  color: #fff;
+  font-weight: 700;
+}
+
+.btn-logout {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-logout:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  color: #ef4444;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    width: 95%;
+    padding: 0 15px;
+  }
+  
+  .user-info {
+    display: none;
+  }
+}

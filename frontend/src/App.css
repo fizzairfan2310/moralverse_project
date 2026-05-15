@@ -1,0 +1,23 @@
+/* ============================================
+   APP GLOBAL STYLES CLEANUP
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Reset background on body to allow particles from index.css to show */
+body, #root {
+  background: transparent !important;
+}
+
+/* Ensure no white gaps at the top */
+html {
+  background: #0f172a !important;
+}
+
+.dashboard, .container, .auth-container {
+  background: transparent !important;
+}
