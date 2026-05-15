@@ -8,8 +8,8 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 
 def get_db_connection():
     if DATABASE_URL:
-        # ☁️ Use Cloud PostgreSQL (Supabase)
-        conn = psycopg2.connect(DATABASE_URL, cursor_factory=RealDictCursor)
+        # ☁️ Use Cloud PostgreSQL (Supabase) with SSL
+        conn = psycopg2.connect(DATABASE_URL, cursor_factory=RealDictCursor, sslmode='require')
         return conn
     else:
         # 📁 Fallback to Local SQLite
