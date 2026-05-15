@@ -37,9 +37,10 @@ function CharacterManagement() {
   const fetchCharacters = async () => {
     try {
       const response = await getCharacters();
-      setCharacters(response.data);
+      setCharacters(response.data || []);
     } catch (error) {
       console.error('Error:', error);
+      setCharacters([]);
     }
   };
 

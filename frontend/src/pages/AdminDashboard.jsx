@@ -20,15 +20,19 @@ function AdminDashboard() {
         const storyRes = await getStories();
         const userRes = await getUsers();
         
+        const charData = charRes.data || [];
+        const storyData = storyRes.data || [];
+        const userData = userRes.data || [];
+
         setStats({
-          characters: charRes.data.length,
-          stories: storyRes.data.length,
-          users: userRes.data.length
+          characters: charData.length,
+          stories: storyData.length,
+          users: userData.length
         });
 
         const combined = [
-          ...charRes.data.map(c => ({ type: 'Character', name: c.name, time: '2h' })),
-          ...storyRes.data.map(s => ({ type: 'Story', name: s.title, time: '5h' }))
+          ...charData.map(c => ({ type: 'Character', name: c.name, time: '2h' })),
+          ...storyData.map(s => ({ type: 'Story', name: s.title, time: '5h' }))
         ].slice(0, 4);
         setRecentActivity(combined);
 

@@ -27,18 +27,20 @@ function StoryManagement() {
   const fetchStories = async () => {
     try {
       const response = await getStories();
-      setStories(response.data);
+      setStories(response.data || []);
     } catch (error) {
       console.error('Error:', error);
+      setStories([]);
     }
   };
 
   const fetchCharacters = async () => {
     try {
       const response = await getCharacters();
-      setCharacters(response.data);
+      setCharacters(response.data || []);
     } catch (error) {
       console.error('Error:', error);
+      setCharacters([]);
     }
   };
 

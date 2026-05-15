@@ -23,8 +23,8 @@ function UserDashboard() {
         getStories(),
         getCharacters(),
       ]);
-      setStories(storiesRes.data);
-      setCharacters(charactersRes.data);
+      setStories(storiesRes.data || []);
+      setCharacters(charactersRes.data || []);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching data:', error);
