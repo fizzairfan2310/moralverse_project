@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
         "./backend"
-    ]
+    ],
+    "workbench.colorTheme": "Default Dark Modern"
 }

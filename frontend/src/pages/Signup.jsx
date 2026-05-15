@@ -20,7 +20,7 @@ function Signup() {
       alert('Account created successfully! Please login.');
       navigate('/login');
     } catch (err) {
-      setError('Username already exists or invalid data');
+      setError(err.response?.data?.error || 'Something went wrong. Please try again.');
     }
   };
 
