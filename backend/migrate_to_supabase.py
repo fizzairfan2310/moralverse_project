@@ -27,22 +27,28 @@ def migrate():
         characters = sqlite_cursor.fetchall()
         for c in characters:
             pg_cursor.execute("""
-                INSERT INTO characters (name, role, description, image_url, animation_type, animation_url, voice_type, created_at)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-            """, (c['name'], c['role'], c['description'], c['image_url'], c['animation_type'], c['animation_url'], c['voice_type'], c['created_at']))
+                INSERT INTO characters (character_id, name, role, description, image_url, animation_type, animation_url, voice_type, created_at)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                ON CONFLICT (character_id) DO NOTHING
+            """, (c['character_id'], c['name'], c['role'], c['description'], c['image_url'], c['animation_type'], c['animation_url'], c['voice_type'], c['created_at']))
 
         # Migrate Stories
         print("Migrating Stories...")
         sqlite_cursor.execute("SELECT * FROM stories")
         stories = sqlite_cursor.fetchall()
         for s in stories:
-            # We don't migrate character_id perfectly if IDs changed, but let's just insert them 
-            # Assuming characters were inserted in the same order and IDs match, but we'll omit character_id for safety if it causes FK constraint issues, OR we just use the same IDs.
-            # Actually, to be safe, let's just insert with character_id. If characters table was empty, IDs should match 1:1.
             pg_cursor.execute("""
-                INSERT INTO stories (title, moral_lesson, story_text, character_id)
-                VALUES (%s, %s, %s, %s)
-            """, (s['title'], s['moral_lesson'], s['story_text'], s['character_id']))
+                INSERT INTO stories (story_id, title, moral_lesson, story_text, character_id)
+                VALUES (%s, %s, %s, %s, %s)
+                ON CONFLICT (story_id) DO NOTHING
+            """, (s['story_id'], s['title'], s['moral_lesson'], s['story_text'], s['character_id']))
+
+        # Reset sequences so future inserts work correctly
+        pg_cursor.execute("SELECT setval('characters_character_id_seq', (SELECT MAX(character_id) FROM characters))")
+        pg_cursor.execute("SELECT setval('stories_story_id_seq', (SELECT MAX(story_id) FROM stories))")
+
+        # Commit stories and characters first
+        pg_conn.commit()
 
         # Migrate regular Users (excluding admin which we already created)
         print("Migrating Users...")
@@ -50,12 +56,15 @@ def migrate():
         users = sqlite_cursor.fetchall()
         for u in users:
             try:
+                # Use a savepoint to rollback only the failed user insert
+                pg_cursor.execute("SAVEPOINT user_insert")
                 pg_cursor.execute("""
                     INSERT INTO users (username, password, role)
                     VALUES (%s, %s, %s)
                 """, (u['username'], u['password'], u['role']))
+                pg_cursor.execute("RELEASE SAVEPOINT user_insert")
             except Exception as e:
-                pg_conn.rollback()
+                pg_cursor.execute("ROLLBACK TO SAVEPOINT user_insert")
                 print(f"Skipped user {u['username']}: {e}")
                 continue
 
