@@ -1,11 +1,12 @@
-from database.db import get_db_connection
+from database.db import get_db_connection, get_placeholder
 
 class User:
     @staticmethod
     def create(username, password, role='user'):
         conn = get_db_connection()
         cursor = conn.cursor()
-        query = "INSERT INTO users (username, password, role) VALUES (?, ?, ?)"
+        p = get_placeholder()
+        query = f"INSERT INTO users (username, password, role) VALUES ({p}, {p}, {p})"
         cursor.execute(query, (username, password, role))
         conn.commit()
         cursor.close()
@@ -16,7 +17,8 @@ class User:
     def get_by_username(username):
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+        p = get_placeholder()
+        cursor.execute(f"SELECT * FROM users WHERE username = {p}", (username,))
         row = cursor.fetchone()
         user = dict(row) if row else None
         cursor.close()
@@ -38,7 +40,8 @@ class User:
     def delete(user_id):
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute("DELETE FROM users WHERE user_id = ?", (user_id,))
+        p = get_placeholder()
+        cursor.execute(f"DELETE FROM users WHERE user_id = {p}", (user_id,))
         conn.commit()
         cursor.close()
         conn.close()
@@ -48,8 +51,9 @@ class User:
     def update(user_id, data):
         conn = get_db_connection()
         cursor = conn.cursor()
+        p = get_placeholder()
         role = data.get('role')
-        cursor.execute("UPDATE users SET role = ? WHERE user_id = ?", (role, user_id))
+        cursor.execute(f"UPDATE users SET role = {p} WHERE user_id = {p}", (role, user_id))
         conn.commit()
         cursor.close()
         conn.close()
