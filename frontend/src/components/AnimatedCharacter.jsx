@@ -20,9 +20,6 @@ function AnimatedCharacter({
   const lottieContainerRef = useRef(null);
   const lottieInstanceRef = useRef(null);
 
-  // 🛡️ Guard: if character is missing, render nothing
-  if (!character) return null;
-
   // Load Lottie animation dynamically
   const loadLottieAnimation = useCallback(async () => {
     try {
@@ -129,6 +126,9 @@ function AnimatedCharacter({
 
   // Don't animate 3D characters (they handle their own animation)
   const shouldAnimate = character.animation_type !== '3d';
+
+  // 🛡️ Guard: if character is missing, render nothing (AFTER all hooks)
+  if (!character) return null;
 
   return (
     <motion.div 
