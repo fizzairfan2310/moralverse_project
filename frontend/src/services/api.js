@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5000/api' 
+  : '/api'; // This will be proxied or handled by the hosting provider
 
 // Character APIs
 export const getCharacters = () => axios.get(`${API_BASE}/characters`);
