@@ -1,90 +1,90 @@
-# ✨ Moralverse - Magical SaaS Admin & Story Platform
+# ✨ Moralverse - Magical Moral Stories Platform
 
-**Moralverse** is a premium, full-stack web application designed for storytelling with a high-end "Dark Glassmorphism" aesthetic. It features a powerful administrative command center to manage characters, stories, and users, combined with a magical reading experience for users.
+**Moralverse** is a premium, visually stunning full-stack web application that brings moral storytelling to life with animated characters, immersive narration, and a modern dark glassmorphism aesthetic.
 
 ---
 
 ## 🌟 Key Features
 
 ### 🎨 Premium UI/UX
-- **Dark Glassmorphism:** Modern, sleek interface with frosted glass effects.
-- **Magical Particles:** Dynamic, floating anime-inspired particles across all pages.
-- **Responsive Design:** Fully optimized for different screen sizes.
+- Modern **Dark Glassmorphism** design with floating magical particle system
+- Smooth animations powered by **Framer Motion**
+- Fully responsive across all devices
 
-### 📊 Admin Command Center (The Dashboard)
-- **Real-time Analytics:** Visual tracking of total users, stories, and active characters.
-- **Character Hub:** Create and manage magical narrators with live previews.
-- **Story Archive:** Full CRUD operations for moral stories assigned to specific characters.
-- **User Base Management:** Administrative control to promote users to Admin or suspend/delete accounts.
+### 👑 Admin Dashboard
+- Real-time analytics and platform statistics
+- **Character Hub** – Create & manage characters with **Live Preview**
+- **Story Archive** – Full CRUD for moral stories with narrator assignment
+- **User Management** – Role management and user control
 
 ### 📖 User Experience
-- **Story Reader:** A polished interface for users to browse and read magical tales.
-- **Smart Redirection:** Automatic role-based login (Admin goes to `/admin`, User goes to `/user`).
-- **Professional Auth:** High-end landing page style Login and Signup screens.
+- Beautiful animated story cards with filtering (Hero, Teacher, Narrator)
+- Immersive **Story Viewer** with side-by-side animated character + **Text-to-Speech**
+- Multiple character animation support:
+  - Static Images
+  - Lottie Animations
+  - **3D GLB Models** (using Three.js)
 
 ---
 
 ## 🛠️ Tech Stack
 
 **Frontend:**
-- **React.js:** Component-based architecture.
-- **Vanilla CSS:** Custom design system (Glassmorphism + Particles).
-- **React Router:** Advanced role-based routing.
+- React.js
+- Framer Motion
+- Three.js
+- CSS (Glassmorphism + Particles)
 
 **Backend:**
-- **Flask (Python):** Robust REST API.
-- **SQLite:** Lightweight, reliable file-based database.
-- **SQLAlchemy/Raw SQL:** Optimized database queries.
+- Flask (Python)
+- Supabase (PostgreSQL)
+
+**Deployment:**
+- Frontend + Backend API → **Vercel**
+- Database → **Supabase**
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Recent Updates (June 2026)
 
-### 1. Backend Setup
-```bash
-cd backend
-# Install dependencies
-pip install flask flask-cors sqlite3
-# Start the server
-python app.py
-```
+- Complete UI/UX redesign with premium magical anime aesthetics
+- Added support for **3D characters**
+- Integrated browser **Text-to-Speech** with voice modulation
+- Migrated from SQLite to **Supabase**
+- Successfully deployed full-stack application on **Vercel**
 
-### 2. Frontend Setup
-```bash
-cd frontend
-# Install dependencies
-npm install
-# Start the React app
-npm start
-```
+---
 
-### 🔑 Default Admin Credentials
-For testing purposes, a master admin account is pre-configured:
+## 🔑 Default Admin Credentials
+
 - **Username:** `admin`
 - **Password:** `admin123`
 
 ---
 
 ## 📁 Project Structure
+
 ```text
 moralverse/
-├── backend/                # Flask API & SQLite DB
-│   ├── controllers/        # Business logic
-│   ├── models/             # Database schemas
-│   ├── routes/             # API Endpoints
-│   └── database/           # DB Connection
-├── frontend/               # React Application
-│   ├── src/
-│   │   ├── components/     # Reusable UI elements
-│   │   ├── pages/          # Full page views
-│   │   └── services/       # API Integration (Axios)
-└── README.md
+├── frontend/              # React Application
+├── backend/               # Flask API
+├── database/              # Supabase + Models
+├── README.md
+└── vercel.json
 ```
 
 ---
 
-## 🎭 Credits & Inspiration
-Designed with ❤️ for the **Moralverse Community**. The design language is inspired by high-end anime aesthetics and modern SaaS dashboards.
+---
+
+## 🔗 Links
+
+- **Live Demo:** https://moralverse-project.vercel.app/login
+- **Demo Video:** [Add your video link here]
+- **GitHub:** fizzairfan2310/moralverse_project
 
 ---
-© 2026 Moralverse Project. All Rights Reserved.
+
+**Made with ❤️ for storytelling and beautiful interfaces.**
+
+© 2026 Moralverse Project
